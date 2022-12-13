@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>BREAD</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>BREAD(Browse,Read,Edit,Add,Delete)</h2>
+
+        <h2>Filters</h2>
+
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <input class="checkbox" for="id" type="checkbox" name="id">ID<br>
+                    </td>
+                    <td>
+                        <input type="integer" placeholder="ID" name="id">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="checkbox" for="str" type="checkbox" name="stringc">String<br>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="String" name="string" value="<%= query.string %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="checkbox" for="integer" type="checkbox" name="integerc">Integer<br>
+                    </td>
+                    <td>
+                        <input type="integer" placeholder="Integer" name="integer" value="<%= query.integer %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="checkbox" for="float" type="checkbox" name="floatc">Float<br>
+                    </td>
+                    <td>
+                        <input type="real" placeholder="Float" name="float" value="<%= query.float %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="checkbox" for="daten" type="checkbox" name="datenc">Date<br>
+                    </td>
+                    <td>
+                        <input type="date" placeholder="start date" name="dates" style="width: 25%;"><br>
+                        <label for="">to</label><br>
+                        <input type="date" placeholder="end date" name="daten" value="<%= query.daten %>"
+                            style="width: 25%;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="checkbox" for="boolean" type="checkbox" name="booleanc">Boolean<br>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Choose the boolean.." name="boolean"
+                            value="<%= query.boolean %>">
+                    </td>
+                </tr>
+            </table>
+            <div style="padding-left: 1rem;">
+                <button type="submit" class="btn">Search</button>
+                <a href="/" class="btn" style="background-color: rgb(236, 233, 42); color: rgb(0, 0, 0); ">Reset</a>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="container" style="padding-left: 21rem;">
+        <form method="post">
+            <table id="customers">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>String</th>
+                        <th>Integer</th>
+                        <th>Float</th>
+                        <th>Date</th>
+                        <th>Boolean</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    <% daftar.forEach((item)=>{ %>
+                        <tr>
+                            <td>
+                                <%= item.id + offset %>
+                            </td>
+                            <td>
+                                <%= item.string %>
+                            </td>
+                            <td>
+                                <%= item.integer %>
+                            </td>
+                            <td>
+                                <%= item.float %>
+                            </td>
+                            <td>
+                                <%= moment(item.daten).format('DD MMMM YYYY') %>
+                            </td>
+                            <td>
+                                <%= item.boolean %>
+                            </td>
+                            <td>
+                                <a href="/edit/<%= item.id %>" class="btn"
+                                    style="background-color: rgb(160, 238, 145); padding: 6px 5px; border-radius: 0rem;"
+                                    type="submit">
+                                    Edit
+                                </a>
+                                <a href="/delete/<%= item.id %>" class="btn"
+                                    style="background-color: rgb(226, 81, 81); padding: 6px 5px; border-radius: 0rem;"
+                                    type="submit">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <div class="pagination" style="padding-left: 35%;">
+                <a href="#">Previous</a>
+                <% for(let i=1; i <=pages; i++){ %>
+                    <a href="/?page=<%= i %>">
+                        <%= i %>
+                    </a>
+                    <% } %>
+                        <a href="#">Next</a>
+            </div>
+            <div style="padding-left: 95%;">
+                <a href="/add" class="btn">Add</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

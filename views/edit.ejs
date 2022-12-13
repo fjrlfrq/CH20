@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>BREAD</title>
+</head>
+
+<body class="container" style="padding-top: 10rem;">
+    <div class="containers">
+        <h1>Edit Data</h1>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>
+                        String
+                    </td>
+                    <td>
+                        <input type="text" name="string" value="<%= data.string %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Integer
+                    </td>
+                    <td>
+                        <input type="integer" placeholder="Integer" name="integer" value="<%= data.integer %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Float
+                    </td>
+                    <td>
+                        <input type="real" placeholder="Float" name="float" value="<%= data.float %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date
+                    </td>
+                    <td>
+                        <input type="date" placeholder="end date" name="daten" value="<%= data.daten %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Boolean
+                    </td>
+                    <td>
+                        <input type="boolean" placeholder="Choose the boolean.." name="boolean" value="<%= data.boolean %>">
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <button type="submit" class="btn">Update</button>
+                <a href="/" class="btn" style="background-color: rgb(236, 233, 42); color: rgb(0, 0, 0); ">Back</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

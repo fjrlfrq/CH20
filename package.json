@@ -1,0 +1,23 @@
+{
+  "name": "ch20",
+  "version": "1.0.0",
+  "description": "BREAD",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "ejs"
+  ],
+  "author": "Fajar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "sqlite3": "^5.1.2"
+  }
+}
